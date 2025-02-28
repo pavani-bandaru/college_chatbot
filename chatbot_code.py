@@ -24,7 +24,7 @@ df['Answer'] = df['Answer'].str.lower()
 vectorizer = TfidfVectorizer()
 question_vectors = vectorizer.fit_transform(df['Question'])
 
-API_KEY = "AIzaSyA2XYTLxP5QV1BpvYbJE1OE9aD3cyiihc0"
+API_KEY = "AIzaSyA2XYTLxP5QV1BpvYbJE1OE9aD3cyiihc0" 
 
 genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
@@ -59,7 +59,7 @@ if prompt := st.chat_input("Type your question here..."):
     else:
         try:
             response = model.generate_content(
-                f"You are a helpful and knowledgeable chatbot for SVCEW College. Provide a detailed and specific answer to the following question: {prompt}"
+                f"You are a helpful and knowledgeable chatbot for SVCEW College. Provide a detailed answer to the following question: {prompt}"
             )
             st.session_state.messages.append({"role": "assistant", "content": response.text})
             with st.chat_message("assistant"):
